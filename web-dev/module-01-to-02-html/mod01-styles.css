@@ -1,0 +1,79 @@
+/* css*/
+
+
+
+@font-face {
+  //font-family: myFirstFont;
+  //src: url(sansation_light.woff);
+  font-family: 'Marck Script', cursive;
+}
+
+body {font-family: cursive;
+	text-align: center;
+	font-size: 1.1em;
+	}
+
+img {
+	width: 100%;
+    object-fit: scale-down;
+	vertical-align: top;
+}
+	
+figure, img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: inline-block;
+	/*height: auto;*/
+	float: top;
+}
+	
+h1,h2 {color: red; font-family: 'Marck Script', cursive;}
+
+.pretty {
+	font-size: 1.1em;
+	text-transform: capitalize;
+	text-shadow: 1px 1px coral;
+}
+
+.banner {
+	background: rgba(255, 127, 80, 0.5);
+}
+
+.bannerY {
+	background: rgba(255, 255, 0, 0.5);
+}
+
+button {
+	font-size: 0.8em;
+	color: tomato;
+	margin-top: 2px;
+	border-color: silver;
+	border-radius: 4px;
+}
+
+ul {
+	list-style: circle; 
+	list-style-position: outside;
+	text-align: left;
+}
+
+li {
+	text-align:left;
+}
+
+/*inline unordered list */
+
+ul#horiz{
+  padding-left: 0;
+}
+
+ul#horiz li {
+  display:inline;
+  padding-right: 12px;
+  padding-left: 2px;
+}
+
+ol li:nth-child(even) {
+	color: seagreen;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mod6 html5</title>
+  <meta charset='utf-8'>
+  <!--<meta name="Author" content="W3docs">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+   <link rel="stylesheet" type="text/css" href="formstyleA.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+    <!-- styling for forms -->
+    
+    label[for~=fname]:after {
+     color: fuchsia;
+     content: " Required field";
+     font-size: small; 
+    }
+    
+    input:focus:invalid {color: red; }
+    input:required:valid {color: fuchsia;}
+    input:focus:required:valid {color:fuchsia;}
+    input:invalid {color:crimson;}
+    
+    label:input:invalid:after {
+     color:crimson;  
+     content: "incorrect";
+    }
+    
+  </style>
+</head>
+<body>
+ <header>
+   <h1>Module 6 HTML5</h1>
+  <nav>
+   <a href="/html/">HTML</a>
+   <a href="/css/">CSS</a>
+   <a href="/js/">JavaScript</a>
+   <a href="/python/">Python</a>
+  </nav>
+ </header>
+ <section>  
+ <article>
+  <h2>HTML5 Elements and Tags</h2>
+   <p>Use <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> to ensure the initial zoom matches the device viewport (visible area). <strong>This is important for Responsive Web Design, as is making the css width property 100% for images.</strong> Images could equally benefit from <code>max-width:100%; height:auto;</code> so images can scale down but not up.</p>
+   <p>The <code>section</code> tag is to group thematically-related content and is for Semantic purposes.</p>
+   <p>This is placed in the <code>article</code> tag to make SEO easier - as it denotes independent self-contained content</p>
+  <P>There is a new <code>hgroup</code> tag for grouping headers</P> 
+  <details>
+    <summary>This <code>summary</code> tag lives inside the <code>details</code> tag which is often used for interactive widgets</summary>
+    <p>check me out I am a p element inside the details tag</p>
+  </details>
+   <p>There is also a <code>mark</code> tag in html5 which defines text that should be highlighted  <mark>like this</mark> the default is yellow but colours can be changed in css. </p>
+ </article>
+ <aside>
+ </aside>
+   <p>The <code>aside</code> element is good for pullquotes etc</p> 
+    <p>The <code>time</code> element has a datetime attribute that corresponds to JavaScript's <code>dateTime</code> Object and can be used to parse between viewer and machine readable code</p>
+ </section>
+<section>
+<h2>Forms</h2> 
+  <p>Client-side validation speeds things up - a better performing form than requiring server-side validation. This will speed up processing. There are a few techniques with html5 we can use for this see <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank">client-side form validation</a> </p>
+  <ul>
+    <li>Using the <code>fieldset</code> element is key for assistive tech, for instance next a set of radio btns inside a <code>fieldset</code> element. Ideally its great for sectioning forms. To label a <cod>fieldset</cod> use the <code>legend</code> tag.</li>
+    <li>Give labels the 'for' attribute eg <code>&lt;label for="fname"&gt;</code>; it provides a way to bind a label to an input where the value of the for matches the input id. It also makes the a label clickable area that defines the focus of the input</li>
+    <li>When creating a <code>select</code> drop-down, use the <code>optgroupe</code> element to group <code>option</code> tags (NB) optgroup label must be used.</li>
+    <li>Use the <b>required</b> attribute to force input</li>
+    <li>Use the <b>email</b> input type to test for @</li>
+    <li>Use the <b>tel</b> input type to test for numbers and <code>pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"</code> is an example of pattern matching</li>
+    <li><code>pattern="http(s?)(:\/\/)((www.)?)([a-zA-z0-9\-_]+).*$"</code> example url pattern matching where (?) wraps optional content segments</li>
+    <li>Autocomplete attr works with <code>&lt;form&gt;</code> and the following input types: search, url, email, password, datepickers, range, and color</li>
+  </ul>
+  <form class="myform container">
+   <fieldset>
+     <legend>Address Details</legend>
+     <label for="fname">First name </label><br>
+     <input type="text" class="input" id="fname" name="fname" aria-label="Enter first name" placeholder="first name" required ><br>
+     <label for="lname">Last name </label><br>
+     <input type="text" class="input" id="lname" name="lname"  aria-label="Enter last name" placeholder="last name"><br>
+     <label for="eml">Email </label><br>
+     <input type="email" class="input" id="eml" name="eml"  aria-label="Enter email address" placeholder="email address"><br>
+     <label for="password">Password </label><br>
+      <input type="password" name="password" id="password" placeholder="Enter the password"> <i class="fa fa-eye" id="togglePassword"></i>
+   </fieldset>
+    <fieldset>
+      <legend>Where are you from</legend>
+    <select>
+    <option>Please choose</option>
+<optgroup label="Europe">
+    <option>France</option>
+    <option>Italy</option>
+    <option>Spain</option>
+</optgroup>
+<optgroup label="Asia">
+    <option>Bali</option>
+    <option>Thailand</option>
+    <option>Vietnam</option>
+</optgroup>
+</select>
+    </fieldset>
+    <fieldset>
+      <label for="web">Website:</label><br>
+  <input type="url" id="web" name="web" pattern="http(s?)(://+).*$" placeholder="https://"><br>
+      <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday">
+    </fieldset><br>
+    <label>How Happy are you today?</label>
+    <input type="range" size="2" name="happiness" min="1" max="5" value="3"> 
+    <input type="submit" value="submit" >
+    
+  </form>
+
+ <footer></footer>
+  <script>
+   const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+    
+    togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+    
+  </script>
+</body>
+
+
+</html>

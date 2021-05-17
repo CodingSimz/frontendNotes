@@ -1,0 +1,187 @@
+/* css for mod02 web pages*/
+
+
+@font-face {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'News Cycle', sans-serif;
+	font-family: 'Patrick Hand', cursive;
+}
+
+body {
+	font-family: 'Patrick Hand', 'Nanum Gothic', 'News Cycle', sans-serif;
+	text-align: center;
+	}
+
+body#forms {
+	font-size: 1.1em;
+	color: dimgray;
+	/*letter-spacing: 0.1em;*/
+}
+
+h1,h2 {
+	color: #a9a9a9; 
+	font-family: 'News Cycle';
+	font-variant: small-caps;
+	}
+
+p, ul, ol, dl {
+	text-align: left;
+}	
+
+code {
+	color: black;
+	font-weight: bold;
+}
+
+.submit {
+	font-size: small;
+}
+
+input {
+	font-size: 0.9em;
+}
+
+.pretty {
+	font-size: 1.1em;
+	text-transform: capitalize;
+	background-color: deepskyblue;
+}
+
+.banner {
+	background: rgba(0, 191, 255, 0.5);
+}
+
+.bannerY {
+	background: rgba(255, 255, 0, 0.5);
+}
+
+.mids {
+	text-align: center;
+}
+
+table {
+	width: 100%;
+	margin: 1px;
+	background: transparent;
+	/*border: 1px solid gray;*/
+	border-collapse: collapse;
+	/*border-radius: 0.5em;
+	overflow: hidden;*/
+}
+
+th, td {
+	border: 1px solid gray;
+	margin: 1px;
+	text-align: left;
+	font-size: 0.8em;
+	padding-left: 4%;
+}
+
+th {
+	background: dimgray;
+	color: white;
+}
+
+#stripes tr:nth-child(even) {
+	background-color: aliceblue;
+}
+	
+figure, img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: inline-block;
+	/*height: auto;*/
+	float: top;
+	font-size: 0.9em;
+	text-transform: uppercase;
+}
+	
+	
+img {
+	width: 100%;
+    object-fit: scale-down;
+	vertical-align: top;
+}	
+
+kbd {
+	background-color: gainsboro;
+}
+
+
+button {
+	font-size: 0.8em;
+	color: tomato;
+	margin-top: 2px;
+	border-color: silver;
+	border-radius: 4px;
+}
+
+ul {
+	list-style: none; 
+}
+
+li {
+	text-align:left;
+}
+
+
+ul li::before {
+  content: "\2603 "; /* Insert snowman entity */
+  color: blue; /* Or a color you prefer */
+  text-align: left;
+  font-size: 1.2em;
+  padding-right: 0.5em;
+}
+
+/*inline unordered list */
+
+ul#horiz{
+  padding-left: 0;
+}
+
+ul#horiz li {
+  display:inline;
+  padding-right: 12px;
+  padding-left: 2px;
+}
+
+ol li:nth-child(even) {
+	color: seagreen;
+}
+
+ul#menu li {
+	display: inline;
+	list-style-type: none;
+}
+
+ul#menu li::before {
+	content: "";
+}
+
+ul#menu li a {
+	background-color: hotpink;
+	border-radius: 5px 5px 0 0;
+	padding: 5px;
+	text-decoration: none;
+}
+
+ul#menu li a:hover {
+	background-color: orange;
+	padding: 5px;
+	text-decoration: none;
+}
+
+#blockstyles {
+	background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+	color: white;
+	font-weight: bolder;
+	padding: 5%;
+	border-radius: 15px 0 15px 0;
+}
+
+#blockstyles p {
+	font-size: 1.1em;
+	letter-spacing: 0.5em;
+	text-align: center;
+}

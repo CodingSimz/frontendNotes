@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaIntro1-2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="js/intro1to4.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h2 {
+            font-size: 1.25em;
+        }
+
+        .button {
+            margin: 0 auto; /* Hoz centre align */
+            padding: 9px;
+            border: 3px solid;
+            border-color: white;
+            border-radius: 6px;
+            font-size: 1.25em;
+            letter-spacing: 1px;
+            color: azure;
+            display: block;
+            text-align: center;
+            outline: none;
+        }
+
+        .btn {
+            background-color: #3EB8E1; /* Blue */
+        }
+
+            .btn:hover {
+                background-color: #79ED7E; /* green */
+            }
+
+            .btn:active {
+                background-color: #A569BD; /* mauve */
+            }
+
+        /*      use this to 'hide' vert scroll */
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        #numb {
+            width: 50px;
+            height: auto;
+            font-size: 1.5em;
+            text-align: right;
+        }
+
+        #reply {
+            font-style: oblique;
+            font-weight: 600;
+            color: darkcyan;
+        }
+    </style>
+
+</head>
+  <body>
+  
+    <h1>What can JavaScript do?</h1>
+    <h2 id="demo1">JavaScript can change HTML content.</h2>
+    
+    <button type="button"
+            onclick = "document.getElementById('demo1').innerHTML = 'Hello JavaScript!'">Click Me Please!</button>
+    <hr>
+    
+    <h2 id="demo2">JavaScript can change Images</h2>
+    
+    <p>Please click the image below to toggle between China and Japan</p>
+    
+<!--  here the onclick is calling the js function -->
+    <img id="myImage" onclick="changeImage()" src="images/china.jpg">
+    <hr>
+    
+  <h2 id="demo3">JavaScript can change the style of an HTML element.</h2>
+    
+    <button  class="button btn" type="button" onclick="myFunction()">Click Me!</button>
+    
+    <hr>
+    
+    <h2>Validate User Input</h2>
+    
+    <p>Please input a number between 1 and 10:</p>
+    
+    <p id="reply"> </p>
+    
+    <input id="numb" type="number">
+    
+    <button  class="button btn"  type="button" onclick="myFunction4()">submit</button>
+    
+    <script> 
+   
+    </script>
+    
+  </body>
+</html>

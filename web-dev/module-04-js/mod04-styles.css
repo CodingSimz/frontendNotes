@@ -1,0 +1,128 @@
+/* css mod 04*/
+
+
+body {
+	color: dimgray;
+	font-size: 1.1em;
+	font-family: 'Open Sans', sans-serif;
+	}
+
+h1, h2, h3, {
+	font-family: 'PT Sans', sans-serif;
+	}
+
+code {
+	color: black;
+	font-size: 1.2em;
+	}	
+	
+span {
+	color: #760dbf;
+	}	
+	
+li {
+	margin: 0.5em 0;
+	}	
+
+div.container {
+	width: 100%;
+	margin: 0px;
+	border: 1px solid gray;
+	line-height: 150%;
+	}
+
+div.header, div.footer {
+	padding: 0.75em 0.75em 0 0.75em;
+	color: white;	
+	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+	/*clear: left;*/
+	}
+
+h1 {
+	margin-bottom: 40px;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	background-color: #a9a9a9;
+	color: transparent;
+	text-shadow: 0px 2px 3px rgba(255,255,255,0.3);
+	-webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+	}
+	
+div.content {
+	width: 90%;
+	padding: 5px;
+	}	
+
+/* https://www.w3schools.com/cssref/tryit.asp?filename=trycss_float_clear_overflow */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+sup {font-size: x-small;}
+
+ul#nav li {
+	padding-top: 0.5em;
+	float: right;
+	list-style-type: none;
+	margin: 0;
+	/*overflow: hidden;*/
+	}
+	
+.horiz li {
+	display: inline;
+	padding-right: 2em;
+	}	
+	
+/* table */
+.bitwise td {
+	text-align: right;
+	padding: 0 0 10px 5px;
+}	
+
+/* table */
+.slick {
+	margin: 0 auto;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+}
+
+.slick th {text-align: left;}
+.slick td {padding: 3px 9px;}
+
+.slick td:first-child, td:nth-child(4) {
+	text-align: right;
+	padding-right: 5px;
+}
+
+.slick tr:nth-child(even) {background-color: #f5f5f5;}
+
+.slick tr:hover {background-color: #ddd;}
+
+.spacer {width: 30px;}
+
+.eg td:last-child {
+	width: 200px;
+}
+
+.cases td:last-child {padding-left: 1em;}
+
+a:link, a:visited {
+	display:block;
+	font-weight:bold;
+	color: #fff;
+	background-color: #98bf21;
+	border-radius: 15px 15px 0 0;
+	width: 120px;
+	text-align: center;
+	padding-top: 4px;
+	text-decoration: none;
+	text-transform: uppoercase;
+	}
+
+a:hover, a:active {
+	background-color: #7a991a;
+	}

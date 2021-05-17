@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML Form Elements</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=News+Cycle&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+		<link href="mod02-styles.css"  rel="stylesheet">
+	</head>
+<body id="forms">
+<div class="w3-container banner">
+	<p class="pretty mids"> <strong> -^__^- </strong> <br></p>
+	<h1>Forms</h1>
+	<p>Most websites have some sort of forms even simple ones such as a login.</p>
+</div>
+<div class="w3-row-padding">
+  <div class="w3-half">
+  	<p class="mids"> <strong> -^__^- </strong> <br></p>
+	<select name="cars">
+		<option value="mercedes">Mercedes</option>
+		<option value="bucatti">Bucatti</option>
+		<option value="ferrari" selected="selected">Ferrari</option>
+		<option value="jaguar">Jaguar</option>
+	</select>
+	<p>use the <code>selected</code> attribute in the option tag for a default.</p>
+	<p><b>Leave a comment</b> in the <code>textarea</code> below:</p>
+	<!--  -->
+	<textarea name="comments" rows="3" cols="30">Type here ....</textarea>
+	<p>Note the rows and cols attributes are a starting point, a User can resize textbox with their mouse</p>
+	<button type="button" onclick="alert('hi guys!')">Click Me</button>
+	<p> the above button uses an <code>onclick</code> event where <code>alert</code> is a javeascript function and <code>('hi guys!')</code> are the alert function paremeters.</p>
+		<form action="post" oninput="c.value=parseInt(a.value)+parseInt(b.value)">
+		<input type="range" id="a" name="a" value="50">
+		 + 
+		<input type="range" id="b" name="b" value="50">
+		=
+		<output name="c" for="a b"></output>
+		<!-- <input type="submit"> -->
+	</form>	
+	<p>In the above form each range has a value attribute set to 50 which denotes the midpoint, so Total Min value is 0 and Total Max value is 200.</p>
+	<p>When creating forms <strong>Never</strong> put spaces in the name attribute of your input fields.</p>
+	<p>If you add <code>readonly</code> to an iput element with a value, it will fix the entry, similarly adding the <code> autofocus</code> attribute will focus the curser and a <code>size</code> attribute controls visible size of box <em>this is different to the <code>maxlength</code> attribute</em></p>
+	</div>
+	<div class="w3-half">
+	<br>
+	<form action="">
+		<label for="fname">First name:</label>
+		<input type="text" id="fname" name="fname" autofocus><br><br>
+		<label for="lname">Last name:</label>
+		<input type="text" id="lname" name="lname"><br><br>
+		<label for="pword">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<label for="pword">Password:</label>
+		<input type="password" id="pword" name="pword" size="6" maxlength="4"><br><br>
+		<input type="radio" name="empstate" value="full-time" checked> full time &nbsp;
+		<input type="radio" name="empstate" value="part-time" > part time
+		<br>
+		<input type="checkbox" name="cat" value="tiger"> tiger &nbsp;
+		<input type="checkbox" name="cat" value="lion"> lion &nbsp;
+		<input type="checkbox" name="cat" value="rex"> rex &nbsp;
+		<br>
+		<input type="submit" class="submit">
+	</form>
+	<p>The email field will validate format and the password field will mask entry.</p>
+	<p>Note: to group radio buttons or check boxes, give them the <strong>same name</strong> and <strong>different values</strong>, eg above 2 radios have name of empstate and 3 checkboxes have name of cat. Also use the <code>checked</code> attribute to denote a defautl radio option.</p>
+	<form>
+		Amount of cakes (min 25): <input type="number" name="qty" min="25" max="500" step="25" value="25"> &nbsp;
+		<input type="submit" class="submit">
+	</form>
+	<p>Attributes for the above input element are <code>type="number" name="qty" min="25" max="500" step="25" value="25"</code></p>
+	<form>
+	<input type="date" name="reqdate" min="2020-10-31" max="2021-01-31"> &nbsp;
+	<input type="color" name="colorbox">
+	</form>
+	<p>Attributes for the above input element are <code>type="date" min="2020-10-31" max="2021-01-31"</code> for dates and other types include <code>month</code>, <code>week</code> and <code>time</code></p>
+	</div>
+</div>
+<!-- <script type="text/javascript" src="myjava.js"></script>
+ -->
+ </body>
+</html>
+

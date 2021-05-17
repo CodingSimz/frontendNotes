@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Module 03 CSS basics</title>
+	
+	<link rel="stylesheet" type="text/css" href="mod03-styles.css">
+	
+	<style>
+		<!-- moved to external stylesheet -->
+	</style>
+
+</head>
+<body>
+<h1>CSS basics</h1>
+<p>CSS (cascading style sheets where declaration syntax is selector and name:value pairs separated by semi-colons.</p><samp>Selector {property: value; }</samp>
+<ul>
+	<li><b>#</b> specifies id and should only be applied to one html element</li>
+	<li><b>.</b> specifies class and multiple classes can apply to multiple html elements</li>
+</ul>
+<p>There are 3 ways to apply stylesheets inline using the style tag, internal using the style element in the document header, and external using a .css file that is linked to the documents in the header.</p>
+
+<h2>Link States using &lt;a&gt; tag</h2>
+<p class="rules">There are style order rules for link states:<br>
+<samp>a:hover</samp> MUST come after <samp>a:link</samp> and  <samp>a:visited</samp><br> Also, <samp>a:active</samp> MUST <samp>a:hover</samp>.<br>
+In other words set <samp>link, visited, hover, active </samp>or the browser may not show state changes in response to User activity.</p>
+<ul class="horiz">
+	<li><a href="https://www.google.com/">Google</a></li>
+	<li><a href="https://www.smh.com.au"target="_blank">SMH</a></li>
+	<li><a href="https://www.dell.com/en-uk" target="_blank">Dell</a></li>
+</ul>
+
+<p>In the a tag you can set a target attribute to control how links open</p>
+<pre class="cblock"><code>target="_blank" &lt;!-- opens link in a new window --&gt;
+target="_self" &lt;!-- opens link in actual window --&gt;
+target="_parent"
+target="_top" &lt;!-- both handle frames --&gt;
+</code></pre>
+
+<h2>The CSS Box Model</h2>
+<p>This model treats each element as a collection of 4 concentric boxes: Margin, Border, Padding, Content. The Corresponding properties are height, width and style.</p>
+<div>
+<p>This is a div with box model applied.<br> Note if you do not specify border style you cannot apply a width. </p><p>NOTE: a) Border shorthand is <code>border: width style color;</code> b) Border-radius must be applied separately, and c) there is an <code>outline</code> property that can be applied OUTSIDE the border (show in double red lines).</p>
+</div>
+<br><br>
+<table>
+	<tr>
+		<th>firstname</th><th>lastname</th>
+	</tr>
+	<tr>
+		<td>Mercy</td><td>Thompson</td>
+	</tr>
+	<tr>
+		<td>Kate</td><td>Daniels</td>
+	</tr>
+	<tr>
+		<td>Jack</td><td>Reacher</td>
+	</tr>
+		<tr>
+		<td>Mercy</td><td>Thompson</td>
+	</tr>
+	<tr>
+		<td>Kate</td><td>Daniels</td>
+	</tr>
+	<tr class="last">
+		<td>Jack</td><td>Reacher</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mod6 html5</title>
+  <meta charset='utf-8'>
+  <!--<meta name="Author" content="W3docs">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+    <!-- styling for forms -->
+    
+    /* Style the form - display items horizontally */
+    
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+  
+  /* Style the input fields */
+.form-inline input,  .TC input[type=submit], #data input[type=submit] {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 5px;
+  border: 2px solid NavajoWhite;
+  border-radius: 5px 5px;
+}  
+    
+.form-inline input:focus {
+  outline: none;
+  border: 2px solid chocolate;
+  border-radius: 5px 5px;
+}   
+    
+ .form-inline input:not([type=submit]) {
+   background-color: #fff;
+   box-shadow: inset 0px 0px 5px 3px rgba(255,222,173,0.4);
+  }
+    
+.form-inline input[type=submit], .TC input[type=submit], #data input[type=submit] {
+  background-color: NavajoWhite;
+  color: chocolate;
+  display: block;
+  letter-spacing: 0.1em;
+  margin: 1em auto;
+  text-transform: uppercase;
+}
+    
+.TC input:not([type=submit]) {
+  height: 1.1em;
+  width: 1.1em;
+  }    
+    
+  #data input {outline: none;} 
+    
+  #data input[type="checkbox"]:required {
+   opacity: 0.0001;
+   width: 1px;
+  }
+  #data input[type="checkbox"]:required:invalid + label::before {
+    content: "\2610";
+    font-weight: bolder;
+    margin-left: -0.5em;
+    padding-right: 0.2em;
+    font-size: 1.4em;
+    color: #AE0D7A;
+  }
+  #data input[type="checkbox"]:required:valid + label::before {
+    content: "\2611";
+    font-weight: bolder;
+    margin-left: -0.5em;
+    padding-right: 0.2em;
+    font-size: 1.4em;
+    color: #A2B814;
+  }  
+    
+    /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 760px) {
+  .form-inline input:not([type=submit]) {
+    display: inline-flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10px 0;
+    margin-right: 30%;
+  }
+  
+ /* .form-inline input{
+    flex-direction: column;
+    align-items: stretch;
+  }  */  
+}
+
+ </style>
+</head>
+<body>
+ <header>
+   <h1>Module 6 HTML5</h1>
+  <nav>
+   <a href="/html/">HTML</a>
+   <a href="/css/">CSS</a>
+   <a href="/js/">JavaScript</a>
+   <a href="/python/">Python</a>
+  </nav>
+ </header>
+<section>
+  <h2>Form Password Validation and Regular Expressions</h2>
+  <p>Using <code>onsubmit="return checkForm(this)"</code> in the &lt;form&gt; element we can use js to do some client-side validation.</p>
+  <p>Testing Regular Expressions <code>/pattern/modifiers;</code> such as Expressions, Metacharacters and Quantifiers </p>
+  <p>For example: <code>/^\w+$/</code> where:<br> <code>^<i>n</i></code> quantifier matches at the beginning of the string, <br> 
+  <code>\w</code> find word chars, incl. letters, nums and _ underscore<br> 
+  <code><i>n</i>+</code> string has at least one <i>n</i>,<br> 
+  <code><i>n</i>$</code> quantifier matches at the end of a string.</p>
+  <form class="form-inline" onsubmit="return checkForm(this);">
+    <label>Enter a username:</label>
+    <input type="text" name="username" placeholder="enter a username" size="15"><br>
+    <label>Enter a password:</label>
+    <input type="password" name="pwd1" placeholder="enter a password" size="15">
+    <label>Confirm password:</label>
+    <input type="password" name="pwd2" placeholder="re-enter password" size="15">
+    <input type="submit">
+  </form>
+</section>
+<section>
+  <h2>Checkbox Validation</h2>
+  <p>Terms of Agreement, SLA (Service License Agreement) and  EULA (End User License Agreement) often require a checkbox to denote opting in.</p>
+  <p>We can test this using a js function in the script element or by: <code>&lt;input onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you Accept' : '');" id="terms" type="checkbox" required name="terms"&gt;</code></p>
+  
+  <form class="TC" onsubmit="return checkboxForm1(this);">
+    <label><input id="term1"  onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you Accept' : '');" type="checkbox" required name="terms"> I accept the terms and conditions.</label>
+    <input type="submit" value="Next" >
+  </form>
+  <p>By using the <code>&lt;label&gt;</code> element alongside the checkbox we can reference it using the CSS3 adjacent sibling selector. We can use this to style the checkbox itself, for example</p> <pre><code>input[type="checkbox"]:required {
+    display: none;
+  }
+  input[type="checkbox"]:required:invalid + label::before {
+    content: "\2610";
+    padding-right: 0.2em;
+    font-size: 1.6em;
+    color: red;
+  }
+  input[type="checkbox"]:required:valid + label::before {
+    content: "\2611";
+    padding-right: 0.2em;
+    font-size: 1.6em;
+    color: green;
+  }</code></pre>
+  <p>will show green looking checkbox and tick using the Hex ballot box characters 2610 &#9744; and 2611 &#9745; Note if you do this you need to set your original checkbox to <code>opacity: 0.0001;</code> rather than <code>display:none</code> otherwise you're validation will fail.</p>
+  <div class="tipbox">
+  <p>Remember: <code>display: none</code> actually removes the elements from the DOM, <code>visibility: hidden</code> makes them invisible as such not discoverable by all screen reader users</p>
+  </div>   
+  <form id="data" onsubmit="return checkboxForm2(this);">
+    <input id="term2" type="checkbox" required name="terms">
+    <label for="term2"> I accept the terms and conditions.</label>
+    <input type="submit" value="Next" >
+  </form>
+</section>
+<section>
+ <h2>Date and Time Validation</h2>
+  <p>just by using the date type input Chrome will give me a calendar-style date picker</p>
+ <p><input type="date" name="date chooser"></p>
+ <p> Use the regular expession <code><em>n{x}</em></code> to denote sequence of x eg <code>/\d{4}/</code> searches for a substring of 4 digits. To enable optional whitespace use <code>\s?</code>.</p>  
+  <form onsubmit="return checkdateForm(this);">
+  <input type="text" name="dob" placeholder="dd/mm/yyyy">
+  <input type="text" name="startTime" placeholder="00:00 am">
+  <input type="submit">  
+  </form>
+</section>  
+ <footer></footer>
+  <script>
+   function checkForm(form) {
+     if (form.username.value == "") {
+       alert("sorry the username cannot be blank");
+       form.username.focus();
+       return false;
+     }
+     re = /^\w+$/;
+     if(!re.test(form.username.value)) {
+       alert("Username Error: please use only letters, numbers and underscores");
+       form.username.focus();
+       return false; 
+     }
+     if (form.pwd1.value == "") {
+       alert("sorry the password cannot be blank");
+       form.pwd1.focus();
+       return false;
+     }
+     if (form.pwd2.value == "") {
+       alert("please confirm your password");
+       form.pwd2.focus();
+       return false;
+     }
+     if (form.pwd2.value!=form.pwd1.value) {
+       alert("passwords do not match");
+       form.pwd2.focus();
+       return false;
+     }
+     if(form.pwd1.value !="" && form.pwd1.value==form.pwd2.value) {
+       if(form.pwd1.value.length <6) {
+         alert("password must be at least 6 chas");
+         form.pwd1.focus();
+         return false;
+       }
+       if(form.pwd1.value == form.username.value) {
+         alert("password cannot be the same as the username");
+         form.pwd1.focus();
+         return false;
+       }
+       re = /[0-9]/;
+       if(!re.test(form.pwd1.value)) {
+          alert("password needs at least one number");
+         form.pwd1.focus();
+         return false;
+       }
+       re = /[a-z]/;
+       if(!re.test(form.pwd1.value)) {
+         alert("password needs at least one lowercase letter");
+         form.pwd1.focus();
+         return false;
+       }
+       re = /[A-Z]/;
+       if(!re.test(form.pwd1.value)) {
+         alert("password needs at least one Uppercase letter");
+         form.pwd1.focus();
+         return false;
+       }
+       
+     } 
+     alert("Thank you for signing up");
+     return true;
+   }
+    
+  // terms checkbox fn OPTION A
+/*  function checkboxForm(form) {
+    if(!form.terms.checked) {
+      alert("Please check the box to indicate your acceptance");
+      form.terms.focus();
+      return false;
+    } 
+    alert("Thank you");
+    return true; // true for the entire form object
+    
+  }*/
+    
+    // terms checkbox fn OPTION B
+  // sets custom message
+  document.getElementById('term1').setCustomValidity("Please indicate that you accept our T&C");
+    
+  //terms checkbox fn OPTION C
+  window.addEventListener('DOMContentLoaded', function(e){
+    var myForm = document.getElementById('data');
+    var checkboxForm2 = function(e) {
+      if(!this.term2.checked) {
+        alert("please give us a tick");
+        this.term2.focus();
+        e.preventDefault(); //equiv to return false
+        return;
+      }
+    };
+
+    // attach to the submit handler
+    myForm.addEventListener('submit', checkboxForm2, false);
+
+    var myCheckbox = document.getElementById('term2');
+    var myCheckboxMsg = "Please check this box to show you understand our terms and conditions";
+
+    //set starting error msg
+    myCheckbox.setCustomValidity(myCheckboxMsg);
+
+    //attach checkbox handler to toggle error msg
+    myCheckbox.addEventListener('change', function(e){
+      this.setCustomValidity(this.validity.valueMissing ? myCheckboxMsg : '');
+    }, false);
+   }, false);
+    
+    
+  function checkdate(strdate, form){
+      //regex to match required date format
+      reD = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+      if(strdate != ' '){
+        regs = strdate;
+        if(regs.length < 10){
+          alert("invalid: please use dd/mm/yyy");
+          form.dob.focus();
+          return false;
+        }
+        
+        d_regs = regs.substring(0,2); //store day
+        m_regs = regs.substring(3,5); //store month
+        y_regs = regs.substring(6); //store yr
+        alert("dd " + d_regs + " mm " + m_regs + " yyyy " + y_regs);
+        // day value is between 1 and 31
+        if(d_regs <1 || d_regs  >31 ){
+          alert("Invalid: day of the month");
+          form.dob.focus();
+          return false;
+        }
+        // month value is between 1 and 12
+        if(m_regs <1 || m_regs  >12 ){
+          alert("Invalid: month");
+          form.dob.focus();
+          return false;
+        }
+        // month value is between 1 and 12
+        if(y_regs <1920 || y_regs  >2022 ){
+          alert("Invalid: year");
+          form.dob.focus();
+          return false;
+        }
+      }
+/*      if(form.dob.value !=' ' && !form.dob.value.match(reD)) {
+        alert("Invalid date format, you gave us " + form.dob.value);
+        form.dob.focus();
+        return false;
+      }*/
+      
+      // regex to match required hour and minute format
+      reT = /^\d{1,2}:\d{2}\s?([ap]m)?$/;
+      if(form.startTime.value !=' ' && !form.startTime.value.match(reT)) {
+        alert("Invalid time format, you gave us " + form.startTime.value);
+        form.startTime.focus();
+        return false;
+      }
+      
+      alert("Thank you for submitting your date and time");
+      return true;
+  }  
+    
+    
+ //checkdateForm validation fn with two parameters 
+    function checkdateForm(form) {
+      return checkdate(form.dob.value.toString(), form);
+    }
+  </script>
+</body>
+
+
+</html>

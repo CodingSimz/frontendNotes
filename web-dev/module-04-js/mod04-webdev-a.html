@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Syntax</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JavaScript Syntax</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<p>JavaScript line comments are preceded by //</p>
+		<p><code>document.write</code> should only be used for testing</p>
+		<p>JS can be used to manipulate text for instance: <code>document.getElementById.innerHTML="this is going to hurt";</code> will render in the quote below</p>
+		<q id="dem00"></q>
+	<script>
+		//window.alert("this is from js");
+		//window.alert(12 + 10);
+		document.getElementById("dem00").innerHTML="this is going to hurt";
+	</script>	
+		<p><strong>NOTE: here the q element id must run (be declared) <em>before the js script</em></strong></p>
+		<p>TIP: use F12 to display the consol on chrome</p>
+		<p><code>innerHTML=</code> can display:</p>
+		<ul>
+			<li>strings "5 + 2" or '5 + 2' displays <span id="dem01">  </span>,</li>
+			<li>literals eg 5 + 2 displays <span id="dem02">  </span>,</li> 
+			<li>variables eg <code>var x =5, var y = 6, var z = x + y </code>&there4; <code>innerHTML.z</code> displays <span id="dem03">  </span></li>
+		</ul>	
+		<p>Datatyping in JavaScript is dynamic</p>
+		<ul>
+			<li>If you initiate a variable eg <code>var free;</code> without a value JS will type it Undefined</li>
+			<li>When storing mixed datatypes in a variable, if you start with a string everything that comes after will be treated as a string ie <code>var a = 10 + 15 + 'cat';</code> produces <span id="dem04"> </span> whereas <code>var b = 'cat' + 10 + 15;</code> displays <span id="dem05"> </span> </li>
+			<li><code>var c = 123e5</code> produces <span id="dem06"> </span> and  <code>var d = 123e-5</code> displays <span id="dem07"> </span> </li>
+			<li>Using the <code>typof</code> operater returns primative data types such as string, number, boolean and undefined and complex data types: function and objects (including array and null objects). Using <code>document.getElementById("dem0").innerHTML = 
+			typeof false</code> will return boolean<br><span id="dem08"> </span> </li>
+			<li>JS array objects are written in [] and items are accessed using [itemNumber], starting at 0</li>
+			<li>JS objects are declared using {} and properties are stored as name:value pairs. to access a property value, use dot notation objectname.propertyname</li>
+		</ul>
+		<p>Calling a function with some parameters <br>
+		<code>function addnums(val1, val2) { <br>
+			&nbsp;&nbsp;return val1 + val2; <br>
+			&nbsp;&nbsp;}</code> 
+			will display <span id="dem09"></span> when parsing the parameters (4,8) <br>
+		<code>function toC(f) { <br>
+			&nbsp;&nbsp;return (5/9) * (f-32); <br>
+			&nbsp;&nbsp;}</code> 
+			will display <span id="dem10"></span> when parsing the parameter 212 ie boiling temp of H<sub>2</sub>0</p>
+		<p>Using array objects, for example extracting the second item in an array or <code>[1]</code> <span id="dem11"></span></p>	
+		<script>
+			var x = 5;
+			var y = 6;
+			var z = x + y;
+			var a = 10 + 15 + ' cat';
+			var b = 'cat ' + 10 + 15;
+			var c = 123e5;
+			var d = 123e-5;
+			var free;
+			document.getElementById("dem01").innerHTML='5 + 2';
+			document.getElementById("dem02").innerHTML=5 + 2;
+			document.getElementById("dem03").innerHTML=z;
+			document.getElementById("dem04").innerHTML=a;
+			document.getElementById("dem05").innerHTML=b;
+			document.getElementById("dem06").innerHTML=c;
+			document.getElementById("dem07").innerHTML=d;
+			document.getElementById("dem08").innerHTML = 
+			typeof free + " e.g. var free, &nbsp;&nbsp;" +
+			typeof "Jack" + " e.g. var foo = 'Jack', <br>" +
+			typeof 3.14 + " e.g. var foo = 3.14, &nbsp;&nbsp;&nbsp;" +
+			typeof false + " e.g. var foo = false, <br>" +
+			typeof [1,2,3,4] + " e.g. var foo = [1,2,3,4], &nbsp;&nbsp;" +
+			typeof {name:'Tim', age:18} + " e.g. var foo = {name:'Tim', age:18}";
+			// new function
+			function addnums(val1, val2) {
+				return val1 + val2;
+			}
+			document.getElementById("dem09").innerHTML= addnums(4,8);
+			
+			// new function
+			function toC(f) {
+				return (5/9) * (f-32); // temp in celcius
+			}
+			document.getElementById("dem10").innerHTML= toC(212);
+			
+			// basic array
+			var bevs = ["café","thé", "lait chaud"];
+			document.getElementById("dem11").innerHTML=bevs[1];
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+	</div>
+</div>
+</body>
+</html>

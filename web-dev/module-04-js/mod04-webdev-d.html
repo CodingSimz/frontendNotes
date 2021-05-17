@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Dates</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		div.content > ul {
+			list-style: none outside;
+			
+		}
+		
+		div.content > ul li:before {
+			content: "\2736  ";
+			color: gold;
+			display: inline-block;
+			text-indent: -1em;
+		}
+		
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Dates</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2></h2>
+				
+		<ul>
+			<li>Using the Date() object without formatting or methods: <span id="dem01"></span> </li>
+			<li>This can also be initialised with forced parems eg <code>Date(2015,10,24)</code> but remember JS begins at 0</li>
+			<li>Using the Date object with <code>.toUTCString()</code>: <span id="dem02"></span> </li>
+			<li>Using the Date object with <code>.toDatetring()</code>: <span id="dem03"></span> </li>
+			<li>Zero time or EPOCH is 01/01/1970, and the increase is exactly 86400 seconds per day, using the Date Obj in JS converts this automatically to Human readable time</li>
+			<li>Date Methods return the date as a number (starting from 0) and  include: <code>getFullYear()</code>, <code>getMonth()</code>, <code>getDate()</code>, <code>getDay()</code></li>
+			<li>To display the month as a name, create a months array and display <code>months[d.getMonth()]</code> for instance this month is: <span id="dem04"></span></li>
+			<li>To display the day as a name, create a days array and display <code>days[d.getDay()]</code> for instance today is: <span id="dem05"></span></li>
+			<li>Use the <code>setDate()</code> method to add days to a date, for instance, using <code>setDate(d.getDate() + 3)</code> returns today's date + 3 days: <span id="dem06"></span></li>
+			<li>The <code>Date.parse(datestring)</code> method will parse a date string and return milliseconds between the string and 1 Jane 1970. <br> Remember: minutes = 1000 * 60; hours = minutes * 60; days = hours * 24; years = days * 365;  yr = Math.roud(d / years)</li>
+		</ul>
+		<script>
+			
+			var d = new Date(); // initilising date obj
+			document.getElementById("dem01").innerHTML = d; //
+			document.getElementById("dem02").innerHTML = d.toUTCString(); //
+			document.getElementById("dem03").innerHTML = d.toDateString(); //
+			
+			var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+document.getElementById("dem04").innerHTML = months[d.getMonth()];
+
+			var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+			document.getElementById("dem05").innerHTML = days[d.getDay()];
+			
+			d.setDate(d.getDate() + 3);
+			document.getElementById("dem06").innerHTML = days[d.getDay()];
+
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+		<!-- <p>. . .  <span id="dem01"></span> </p> -->
+	</div>
+</div>
+</body>
+</html>

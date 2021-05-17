@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Scope</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Scope and Events</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>Global Variables</h2>
+		<ul>
+			<li>Global Variables are visible everywhere</li>
+			<li>If you use an undeclared variable inside a function it automatically becomes Global</li>
+			<li>Global Vars automatically become window vars ie <code>window.var1</code> and <code>.var1</code> are the same</li>
+		</ul>
+		<h2>Local Variables</h2>
+		<ul>
+			<li>Variables declared inside a funtion cannot be accessed globally</li>
+			<li>Once JS exits out of the function, the variable is trashed</li>
+		</ul>
+		<h2>Events</h2>
+		<ul>
+			<li>Happen inside a script and / or HTML pages</li>
+			<li>JS reacts to events such as <code>onclick=""</code>,  <code>onmouseover=""</code>,  <code>onkeydown=""</code></li>
+			<li>Events can be linked to muliple elements for instance <span onclick="this.innerHTML='SPAN Tag'">Click Me</span></li>
+		</ul>
+		<p>. . .  <span id="dem01"></span> </p>
+		<p>. . .  <span id="dem02"></span> </p>
+		<button onclick="getElementById('dem02').innerHTML=Date()">Show Date/Time</button>
+		<button onclick="this.innerHTML=Date()">Show Date/Time</button>
+		<p>In the second date / time example, we used <code>this.</code> to reference the button object itself</p>
+		<p><code>onclick="function()"</code> can be used to call a fn eg this button will call the fn <code>displYear()</code> <span id="dem03"></span> <button onclick="displYear()">Show Year</button></p>
+
+		<script>
+			var carname="Lambo";
+			myfunct(); //call a fn called myfunct ..() around the fn name call it.
+			
+			function myfunct() {
+				document.getElementById("dem01").innerHTML = "This shows the value: " + carname;
+			}
+			
+			function displYear() {
+				document.getElementById("dem03").innerHTML = new Date().getFullYear(); // class().method();
+			}
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+	</div>
+</div>
+</body>
+</html>

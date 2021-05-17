@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 and the DOM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+		<link href="mod01-styles.css"  rel="stylesheet">
+	</head>
+<body>
+<div class="w3-container banner">
+	<h1>Looking at JavaScript and the DOM</h1>
+	<button type="button" onmouseover="document.getElementById('demo').innerHTML=Date()">Mouseover to Display Date</button>
+	<p id="demo"></p>
+	<p></p>
+	<p> <strong> -^__^- </strong> <br></p>
+</div>
+<div class="w3-row-padding">
+  <div class="w3-third">
+	<p>JavaScript is interpreted (by the browser) rather than compiled hence its a scripting language.</p>
+	<p>3 simple datatypes: String Number and Boolean. And variables can be created as undefined var noVal; or null var nullVal = null; and these are different.</p>
+	<h2>Functions</h2>
+	<figure>
+		<img src="../img/jsFunctionSample.png" alt="js function" />
+		<figcaption>Functions = blocks of reusable code</figcaption>
+	</figure>
+	<ul>
+		<li>Arguments are only accessible inside the function.</li>
+		<li>A fn can return a value</li>
+		<li>A fn can also declare local variables</li>
+		<li>Global variables defined outside of a fn are available to all fns in scripts referenced by a page</li>
+	</ul>
+	</div>
+	<div class="w3-third">
+	<h2>Conditional Constructs</h2>
+	<p>if and switch </p>
+	<h2>Looping Constructs</h2>
+	<figure>
+		<img src="../img/loops.png" alt="js function" />
+		<figcaption>while, do while &amp; for loops</figcaption>
+	</figure>
+	<p> <strong> -^__^- </strong> <br></p>
+	<p>JavaScript has a number of built-in obj types incl: String, Date, Array, RegExp and singleton types providing useful functionality such as Math, Global</p>
+	</div>
+  <div class="w3-third">
+	<p> <strong> -^__^- </strong> <br></p>
+	<p>Javascript can change html content</p>
+	<button type="button" onclick="document.getElementById('demo2').innerHTML='Hi from JS'">Click Me</button>
+	<p id="demo2"></p>
+	<p>Using JavaScript with Images</p>	
+	<figure>
+		<img id="onoff" onclick="changeImage()" src="../img/off.jpg" height="72px">
+		<figcaption>Click the image to toggle it</figcaption>
+	</figure>
+	<p> <strong> -^__^- </strong> <br></p>
+	<p id="cstyle">Javascript can change the Style of an Element</p>
+	<button type="button" onclick="changeStyle()">Click to restyle above sentence.</button>
+	<p> <strong> -^__^- </strong> <br></p>
+	<p>JS can also be used to validate User input</p>
+	<p>Please enter a number between 1 and 21</p>
+	<input id="num" type="number"></input>
+	<button type="button" onclick="checkData()">Verify Entry</button>
+	<p id="response"></p>
+	</div>
+</div>
+<script>
+function changeImage() {
+	var image = document.getElementById('onoff');
+    if (image.src.match("../img/off")) {
+        image.src = "../img/on.jpg";
+		} else {
+        image.src = "../img/off.jpg";
+		}
+}
+
+function changeStyle() {
+	var x=document.getElementById('cstyle');
+	x.style.fontStyle="italic";
+	x.style.color="coral";
+}
+
+function checkData() {
+	var x, text;
+	
+	// get the val of input field
+	x = document.getElementById('num').value;
+	
+	// if x is not a number OR less than 1 OR greater than 21 display error
+	if (isNaN(x) || x < 1 || x > 21) {
+		text = "invalid input, try again";
+	} else {
+		text = "All Good";
+	}
+	document.getElementById('response').innerHTML=text;
+}
+
+</script>
+<!-- <script type="text/javascript" src="myjava".js></script>
+ -->
+ </body>
+</html>
+

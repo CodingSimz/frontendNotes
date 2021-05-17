@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Arrays</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		div.content > ul {
+			list-style: none outside;	
+		}
+		
+		div.content > ul li:before {
+			content: "\262F";
+			color: gold;
+			display: inline-block;
+			text-indent: -1em;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Arrays</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>Arrays</h2>
+		<P>In JS, arrays use numbered indexes accessed by [n]. Arrays can be initialised simply by <code>var array_name = [item1, item2, ...];</code> and can include mixed data types eg <code>var person = ["John", "Doe", 46];</code>.</P>
+		<ul>
+			<li>Full array <span id="dem01"></span> </li>
+			<li>Specific element <span id="dem02"></span> </li>
+			<li>An element can be changed via index number [n] eg <code>fruits[2] = "Kiwi";</code> </li>
+		</ul>
+		<p>Array Length</p>
+		<ul>
+			<li><code>arr_name.length</code> number of items in Array <span id="dem03"></span> </li>
+			<li><code>var last = arr_name[arr_name.length - 1];</code> will access the last element in the array</li>
+			<li><code>arr_name[arr_name.length] = item;</code> will add a new element to the array</li>
+		</ul>
+		<p>Array Methods include</p>
+		<ul>
+			<li><code>sort()</code> returns alpha <span id="dem04"></span> </li>
+			<li><code>valueOf()</code> and <code>toString()</code> returns array as comma separated str.</li>
+			<li><code>join()</code> returns a string with a separator of choice e.g. <code>classes.join(" then ")</code> returns <span id="dem06"></span> </li>
+			<li><code>shift()</code> removes <b>first</b> element and reindexes</li>
+			<li><code>unshift()</code> adds <b>first</b> element and reindexes</li>
+			<li><code>pop()</code> removes <b>last</b> element eg <code>fruits.pop()</code></li>
+			<li><code>push(element)</code> appends an element eg <code>fruits.push("Kiwi")</code></li>
+			<li><code>reverse()</code> displays in reverse order</li>
+			<li><code>splice(p1,p2)</code> where <b>p1</b> is the starting point, and <b>p2</b> number of elements to remove from the array; this is a clean removal (rather than using delete keyword)</li>
+			<li><code>splice(p1,p2,pn,...)</code> where <b>p1</b> position in array to splice in, <b>p2</b> how may elements to remove, <b>pn</b> defines new elements to be added e.g. <code>fruits.splice(2, 1, "Lemon", "Kiwi")</code> will delete 1 item in position 2 and add Lemon and Kiwi. Note if you store this in a variable you can access the removed item eg <code>var remove = fruits.splice(2, 1, "Lemon", "Kiwi");</code> removed the [2] fruit (apple)</li>
+			<li><code>concat()</code> will merge existing arrays into a new array eg <code>var myChildren = myGirls.concat(myBoys);</code> and can take muliple array arguments <code>var myChildren = arr1.concat(arr2, arr3);</code></li>
+			<li>Beware using <code>sort()</code> method on number arrays eg <br><code>var nums = [40,100,1,5,25,400,10];
+			nums.sort();</code> <span id="dem07"> </span> instead use a <b>Compare fn</b> such as <code>nums.sort(function(a,b){return a-b});</code> which will return  <span id="dem08">  </span> This compare fn will  compare all the values in an array two values at a time and return a -ve, 0 or +ve value depending on the arguments and sort lowest to highest</li>
+		</ul>
+		
+		<p>You can use the for loop to iterate through an array</p>
+		<p id="dem05"></p>
+		<h2>Objects</h2>
+		<p>In JS Objects use Named Indexes. Objects use element:member pairs stored in {} for instance:<br> <code>var person = {firstName:"John", lastName:"Doe", age:46};</code></p>
+		<script>
+			
+			var classes = ["French","German","Spanish","Italian"]; // init array
+			
+			document.getElementById("dem01").innerHTML = classes; //
+			document.getElementById("dem02").innerHTML = classes[0]; //
+			document.getElementById("dem03").innerHTML = classes.length; //
+			document.getElementById("dem04").innerHTML = classes.sort(); //
+		
+			var index; // used to iterate thru array elements
+			var text = "<ul>"; // beginning value of text variable
+			for (index = 0; index < classes.length; index++) {
+				text += "<li>Class now is " + classes[index] + "</li>";
+			}
+			text += "</ul>";
+			document.getElementById("dem05").innerHTML = text; //
+			
+			
+			document.getElementById("dem06").innerHTML = classes.join(" then ");
+			
+			var nums = [40,100,1,5,25,400,10];
+			nums.sort();
+			document.getElementById("dem07").innerHTML = nums;
+			
+			//var nums2 = [40,100,1,5,25,400,10];
+			nums.sort(function(a,b){return a-b});
+			document.getElementById("dem08").innerHTML = nums;
+			
+			
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+		<!-- <p>. . .  <span id="dem01"></span> </p> -->
+	</div>
+</div>
+</body>
+</html>

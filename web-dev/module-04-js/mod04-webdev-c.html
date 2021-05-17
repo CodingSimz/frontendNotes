@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Numbers</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Numbers</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2></h2>
+		<p>. . .  <span id="dem01"></span> </p>
+		<p>JavaScript will dynamically convert numbers to a string. This is called implicit type coercion and is triggered when + is used and one of the operands is a string, but this isn't always a good idea.</p>
+		<p>To control typcasting use <code>n.toString()</code> method, e.g. <code>"text " + (100 + 10).toString() + " ."</code> or the <code>String(n)</code> object.</p>
+		<p>Exponential notation: very large or small numbers can be written in exponential notation. <code>var a = 123e5;</code> and <code>var b = 123e-5;</code> will display as <span id="dem02"></span>, similarly <code>n.toExponential(n)</code> returns the number rounded off and presented with scientific notation  <code>var a = 9.656;</code> will return <span id="dem03"></span> using <code>n.toExponential(2)</code></p>
+		<p><code>n.toFixed(n)</code> returns a str with n length after decimal point whereas <code>n.toPrecision(n)</code> returns a str with specified number of significant digits.</p>
+		<p><code>Math.PI.toFixed(2);</code> vs <code>Math.PI.toPrecision(2);</code> <span id="dem04"></span></p>
+		<h2>Converting Strings to Numbers</h2>
+		<p>Use <code>parseInt()</code> to convert str to WHOLE numbers for instance <code>parseInt("16.22 10 years");   // returns 16</code> Note: Only the first number is returned, to parse decimals use <code>parseFloat()</code> ie floating point numbers. In both cases parsing <code>("years 16.22 10");   // returns NaN</code> because the string began with text.</p>
+		<p>The <code>valueOf()</code> method converts number objects to primative vals but is rarely used in code.</p>
+		<h2>Basic Maths</h2>
+		<p><code>Math.random()</code> returns <span id="dem05"></span> ie random number between 0 - 1</p>
+		<p><code>Math.min(9,6,4,13,2,16)</code> returns lowest n <span id="dem06"></span> </p>
+		<p><code>Math.max(9,6,4,13,2,16)</code> returns highest n <span id="dem07"></span> </p>
+		<p>Other math methods include <code>Math.round(n)</code> <code>Math.ceil(n)</code> <code>Math.floor(n)</code>  <code>Math.abs(n)</code>  <code>Math.pow(x, y)</code> <code>Math.sqrt(n)</code></p>
+		<h2>Math Constants</h2>
+		<p>The Math Object has 8 constants: <code>E PI SQRT2 SQRT1_2 LN2 LN 10 LOG2E LOG10E</code></p>
+		<script>
+			var x = 10 + 5; // int data type
+			document.getElementById("dem01").innerHTML = x + " this is a test " + x;
+			
+			var a = 123e5;
+			var b = 123e-5;
+			document.getElementById("dem02").innerHTML = a + " and " + b;
+			
+			var c = 9.656;
+			document.getElementById("dem03").innerHTML = c.toExponential(2);
+			
+			var d = Math.PI.toFixed(2); // "3.14"
+			var e = Math.PI.toPrecision(2); // "3.1"
+			document.getElementById("dem04").innerHTML = d + " and " + e;
+			
+			document.getElementById("dem05").innerHTML = Math.random();
+			
+			document.getElementById("dem06").innerHTML = Math.min(9,6,4,13,2,16);
+			
+			document.getElementById("dem07").innerHTML = Math.max(9,6,4,13,2,16);
+			
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+	</div>
+</div>
+</body>
+</html>

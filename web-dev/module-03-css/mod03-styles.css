@@ -1,0 +1,124 @@
+ /* Mod Three Styles */
+ 
+ body {
+	margin-left: 20px;
+ }
+
+div {
+	outline: 5px double orangered;
+	width: 90%;
+	border: 5px solid gray;
+	border-left-width: 20px;
+	/*border-radius: 15px 0 15px 0;*/
+	margin: 0;
+	padding: 10px;
+	background: mistyrose;
+	}
+
+h1, h2 {
+	text-indent: 50px;
+	font-family: sans-serif;	
+	}
+
+h1 {
+	text-indent: 50px;
+	color: gainsboro;
+	font-family: sans-serif;
+	text-transform: capitalize; /*1st char to upper*/
+	letter-spacing: 0.1em;
+	text-shadow: 2px 2px 4px #dc143c; /*h-shadow v-shadow blur-radius color*/
+}
+
+h2 {
+	color: navy;
+	font-variant: small-caps;
+	padding-top: 1.5em;
+	/*line-height: 2em;
+	vertical-align: bottom;*/
+	}
+
+p, ul, a {
+	font-size: 1.1em;
+	}
+
+p, ul {
+	color: navy;
+	text-align: left;
+	}
+
+ul li {
+	list-style-type: none;
+	}
+
+/*not visited link*/
+a:link { 
+	color: #0f0;
+	text-decoration: none;
+	}
+
+/*visited link*/
+a:visited { 
+	color: #f00;
+	text-decoration: none;
+	}
+
+/*mouse hover link*/
+a:hover { 
+	color: #f0f;
+	text-decoration: underline;
+	background-color: lightgray;
+	}
+
+/*mouse hover link*/
+a:active { 
+	color: #00f;
+	text-decoration: underline;
+	}
+
+.rules {
+	text-transform: italic;
+}
+
+.cblock {
+	padding: 10px;
+	background-color: gainsboro;
+}
+
+.horiz {
+	border: 5px outset whitesmoke;
+	background: whitesmoke;
+	width: 70%;
+	}
+	
+.horiz li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+table {
+	width: 50%;
+	 margin-left:auto; 
+    margin-right:auto;
+	}
+
+table, th, td {
+	border: 1px dotted black;
+	border-collapse: collapse;
+	padding: 4px 6px 4px 6px;
+	font-family: "trebuchet MS";
+	}
+	
+th {
+	background-color: lightgreen;
+	color: white;
+	font-size: 1.1em;
+	margin-top: 4px;
+	}	
+
+tr:nth-child(even) {
+	background-color: rgba(144, 238, 144, 0.25);
+	}	
+	
+tr.last td {
+	background-color: rgba(144, 238, 144, 0.75);
+	}	

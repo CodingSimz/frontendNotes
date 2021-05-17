@@ -1,0 +1,56 @@
+/*css form for mod06-a */
+
+
+
+.container {
+  background-color: azure;
+  border: 1px solid grey;
+  border-radius: 0.6em;
+  box-shadow: 2px 2px 5px grey;
+  display:flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 30%;
+  margin-left: 5%;
+  padding: 0.5em;
+}
+
+fieldset {
+  display: inline;
+  border-radius: 0.5em;
+  margin-top: 0.2em;
+}
+
+fieldset, label {color: darkblue; font-family: sans-serif;}
+
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+input[type=text], input[type=email]  {
+  background-image: url("../img/thought-bubble.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+
+/* password visibility icon */
+.myform i {margin-left: -30px; cursor: pointer;}
+.fa {display: inline;}
+
+
+/* Style the submit button */
+input[type=submit] {
+  background-color:darkorchid;
+  color: white;
+  width: 50%;
+}
+

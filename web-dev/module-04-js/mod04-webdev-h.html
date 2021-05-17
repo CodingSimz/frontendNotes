@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Errors and Debugging</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		div.content > ul {
+			list-style: none outside;	
+		}
+		/*\00A0 nonbreaking space*/
+		div.content > ul li:before {
+			content: "\002740 \00A0"; 
+			color: darkviolet;
+			display: inline-block;
+			text-indent: -1em;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Errors and Debugging</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>Trapping Errors</h2>
+		<p>In JS when an error occurs the script stops and JS will throw an excpetion (throw an error) this is actually JS creating an Error Obj with 2 properties <code><b>name</b></code> and <code><b>message</b></code>.</p><p> To help debug in JS we can harness this with  <code><b>try</b></code>, <code><b>catch</b></code> and <code><b>throw</b></code> statements.</p>
+		<ul>
+		<li><code><b>try {}</b></code> tests a code block for errors</li>
+		<li><code><b>catch {}</b></code> handles the error eg <code>catch(err) {...innerHTML = err}</code> will display feedback. The full Error Obj feedback with both properties will be displayed using <code><b>err</b></code> or specify either property eg <code><b>err.name</b></code>, or <code><b>err.message</b></code> or create your own</li>
+		<li>Syntax <code>try {test code block} catch(err) {handle code block}</code></li>
+		<li><code><b>finally {}</b></code> lets you exe code after a try and catch regardless of result</li>
+		<li><code><b>throw</b></code> allows for custom errors and can be used within a try {} eg <code>try {if(x == "")  throw "empty";}</code> to become the err displayed</li>
+		</ul>
+		<table class="slick">
+		<tr><th>Error Name</th><th>Description</th><th>Example</th></tr>
+		<tr><td>RangeError</td><td>A number outside the range of legal values</td><td> try  .toPrecision() on a number NOT between 1 and 100 (inclusive)</td></tr>
+		<tr><td>ReferenceError</td><td>Using (ie referencing) an undeclared variable</td><td><code>var y=3; try {x = y+z;}</code> <span id="results"></span></td></tr>
+		<tr><td>SyntaxError</td><td>Evaluating code with a syntax error</td><td>try ("alert('hello)") where closing ' is omitted</td></tr>
+		<tr><td>TypeError</td><td>the value is outside the range of expected types</td><td>try .toUpperCase() on a num instead of str</td></tr>
+		<tr><td>URIError</td><td>Uniform Resource Identifier Error: using illegal chars in a URI function</td><td>try using decodeURI("%%")</td></tr>
+		</table>
+		<p></p>
+		<p><strong>JavaScript does not give an error on division by 0</strong>. However, 0 divided by 0 will yield NaN, which is actually correct, since 0/0 is defined as "indeterminate". It may be better to return 0 or false in these situations, though, depending on the application (in JavaScript, 0 and false are the same thing).</p>
+		<p>The following evalutes input to see if its NOT a number between 5 and 10 using try catch and throw</p>
+		<input id="dem01" type="text" size="4"> 
+		<button type="button" onclick="inputTest()">Test input text</button>
+		<p><span id="p01"></span></p>
+		<code>
+		try { <br>
+		&nbsp;if(x == "")  throw "empty"; <br>
+		&nbsp;if(isNaN(x)) throw "not a number"; <br>
+		&nbsp;x = Number(x); <br>
+		&nbsp;if(x &lt; 5)  throw "too low"; <br>
+		&nbsp;if(x &gt; 10)   throw "too high"; <br>
+		 } <br>
+		 catch(err) { <br>
+		&nbsp;message.innerHTML = "Input is " + err; <br>
+		  } <br>
+		  finally { <br>
+		&nbsp;message.innerHTML += " You gave us " + x; <br>
+		&nbsp;document.getElementById("dem01").value = ""; <br>
+		  }
+		</code>
+		<h2>Debugging</h2>
+		<p><code>debugger</code> will pause code execution, beyond this point the code can be viewed in the browser console rather than the webpage (in Chrome use F12 to open the console) and debugging tools. The script will be paused on the debugger line and from here can be advanced line-by-line by pressing F11. To display returns in the console you can use <code>console.log()</code></p>
+		<script>
+		
+				var x = 1;
+				var y = 0;
+				
+				try {
+					 //x.toUpperCase();
+					 //eval("alert('Hello)");
+					 x = y + z;
+				} 
+				catch (err) {
+					document.getElementById("results").innerHTML = err;
+				}
+				
+				function inputTest() {
+				  var message, x;
+				  message = document.getElementById("p01");
+				  message.innerHTML = "";
+				  x = document.getElementById("dem01").value;
+				  try { 
+					if(x == "")  throw "empty";
+					if(isNaN(x)) throw "not a number";
+					x = Number(x);
+					if(x < 5)  throw "too low";
+					if(x > 10)   throw "too high";
+				  }
+				  catch(err) {
+					message.innerHTML = "Input is " + err;
+				  }
+				  finally {
+					message.innerHTML += " You gave us " + x;
+					document.getElementById("dem01").value = "";
+				  }
+				}
+			
+			//document.getElementById("dem01").innerHTML = greeting; //
+			//document.getElementById("dem02").innerHTML
+			
+			var a = 5;
+			var b = 6;
+			debugger;
+			console.log(a*b);
+			console.log("sample");
+			
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+		<!-- <p>. . .  <span id="dem01"></span> </p> -->
+	</div>
+</div>
+</body>
+</html>

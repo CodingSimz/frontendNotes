@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W3 JS Strings</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>JS Syntax - Strings</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>String Properties</h2>
+		<p><code>Length</code>, returns total length of a string including: chars,  spaces, special chars, escape sequences such as \" (here \" is one char), the number of chars in a html entity (here &gt; will add 4 not 1 to the length), and number of chars used in html tags (for instance, &lt;em&gt; will add 10 to the length). <em>This is important when using the length property or string methods on HTML code</em>.</p>
+		<h2>String Methods</h2>
+		<p><code>indexOf()</code> finds a string within a string, here count starts at 0 left-to-right</p>
+		<p id="qu01">Please find the word 'Find' in this text.
+		<button onclick="findStr()">Click to displ index of first letter</button>
+		<span id="an01"></span> note this locates Find, find would return 7. Also, count includes html markup not visible to the User</p>
+		<p><code>lastIndexOf()</code> searches backwards for string within string</p>
+		<p><code>replace("old", "new")</code> this is case sensitive, to override use regular expression with <strong>/i flag</strong> i.e. no string "" just <code>/OLD/i</code> and this method ONLY replaces the first match</p>
+		<p><code>search()</code> is quite similar to <code>indexOf</code> but its has much greater flexibility when working with Regular Expressions.</p>
+		<p><code>slice(start, end)</code> if paremeters are -tive it will count from the right, if only one number is given <code>slice(num)</code> will behave like <code>indexOf</code> or <code>lastIndexOf</code> when -ve, and you could use a function to place a variable as a paramenter rather than a number e.g. <br>
+		<code>function findStr2() { <br>
+		&nbsp;&nbsp;var ingreds = "chocolate vanillia ginger"; <br>
+		&nbsp;&nbsp;var spacepos = ingreds.indexOf(" "); <br>
+		&nbsp;&nbsp;var flavour = ingreds.slice(0,spacepos); <br>
+		&nbsp;&nbsp;document.getElementById("an02").innerHTML = flavour; <br>
+	&nbsp;&nbsp;}</code> will end at first space in the list "chocolate vanillia ginger" <button onclick="findStr2()">Click to reveal</button>
+		<span id="an02"></span> </p>
+		<p><code>substr(start, length)</code> </p>
+		<p><code>replace(match, new)</code> e.g. <br>
+		<code>function findStr3() { <br>
+		&nbsp;&nbsp;var ingreds = "chocolate vanillia ginger"; <br>
+		&nbsp;&nbsp;var spacepos = ingreds.indexOf(" "); <br>
+		&nbsp;&nbsp;var flavour = ingreds.replace("vanillia","orange"); <br>
+		&nbsp;&nbsp;document.getElementById("an03").innerHTML = flavour; <br>
+	&nbsp;&nbsp;}</code> will swap vanillia for orange in the list "chocolate vanillia ginger" <button onclick="findStr3()">Click to reveal</button>
+		<span id="an03"></span> </p>
+		<p><code>object.toUpperCase();</code> &nbsp;<code>object.toLowerCase();</code></p>
+		<p><code>var1.concat(" ", var2);</code></p>
+		<p><code>var1.charAt(#);</code> &nbsp;<code>var1.charCodeAt(#);</code> for ASCII codes</p>
+		<p><code>string.split(separator, limit)</code> used to split a String into an array of substrings for example using <code>.split(" ")</code> "my sunny summer day" <button onclick="findStr4()">Show 3rd item </button> <span id="an04"></span> </p>
+		
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+	</div>
+</div>
+<script>
+	function findStr() {
+		var str = document.getElementById("qu01").innerHTML;
+		var position = str.indexOf("Find");
+		document.getElementById("an01").innerHTML = position;
+	}
+	
+	function findStr2() {
+		var ingreds = "chocolate vanillia ginger";
+		var spacepos = ingreds.indexOf(" ");
+		var flavour = ingreds.slice(0,spacepos);
+		document.getElementById("an02").innerHTML = flavour;
+	}
+	
+	function findStr3() {
+		var ingreds = "chocolate vanillia ginger";
+		var spacepos = ingreds.indexOf(" ");
+		var flavour = ingreds.replace("vanillia","orange");
+		document.getElementById("an03").innerHTML = flavour;
+	}
+	
+	function findStr4() {
+		var stuff = "my sunny summer day";
+		var arr = stuff.split(" ");
+		document.getElementById("an04").innerHTML = arr[2];
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Operators</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		div.content > ul {
+			list-style: none outside;	
+		}
+		
+		div.content > ul li:before {
+			content: "\262F";
+			color: gold;
+			display: inline-block;
+			text-indent: -1em;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Operators</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>Comparison Operators</h2>
+		<P>Using == to test eg Does x==8? Using <code>if (x==8) {} else {}</code> we can test and return a result based on true or false <span id="dem01"></span></P>
+		<table class="slick">
+			<tr><td><b>==</b></td><td>test value eql to</td><td class="spacer"></td>
+			<td><b>!=</b></td><td>test value not eql</td></tr>
+			<tr><td><b>===</b></td><td>test value AND type eql to</td><td></td>
+			<td><b>!==</b></td><td>test value OR type not eql</td></tr>
+			<tr><td><b>&gt;</b></td><td>greater than</td><td>&nbsp;</td>
+			<td><b>&gt;=</b></td><td>greater than or eql to</td></tr>
+			<tr><td><b>&lt;</b></td><td>less than</td><td>&nbsp;</td>
+			<td><b>&lt;=</b></td><td>less than or eql to</td></tr>
+		</table>
+		<h2>Logical Operators</h2>
+		<P> <span id="dem02"></span> based on x=6 and y=3 ...</P>
+		<ul class="horiz">
+			<li><b>&amp;&amp;</b> And eg <code>(x&lt;10 &amp;&amp; y&gt;1) is T</code></li>
+			<li><b>||</b> Or eg <code>(x==5 || y==5) is F</code></li>
+			<li><b>!</b> Not eg <code>!(x==y) is T</code></li>
+		</ul>
+		<h2>Conditional (Ternary) Operator</h2>
+		<P>variablename = (condition) ? value1:value2 <br> <code>var voteable = (age &lt; 18) ? "Too young":"Old enough";</code><span id="dem03"></span></P>
+		<h2>Comparisons and Data Types</h2>
+		<ul>
+			<li>When Cf a Str and a Num, JS will convert the string TO a numb then compare - an empty str will become 0</li>
+			<li>Non numeric Str converts to NaN  &there4; returns FALSE </li>
+			<li>Two numeric str will NOT be converted and &there4; the cf will be spelling based. To avoid this variables should be converted eg <code>age = Number(age);</code> and tested eg <code>if (isNaN(age)) {} else {}</code></li>
+		</ul>
+		<h2>Bitwise Operators</h2>
+		<p>JavaScript converts numbers to 32 bits signed integers before performing bitwise operations for instance, 5 will be converted to binary 0 0 1 0 1. After the operation is performed, JS will convert numbers back to their original 64 bit floating point numbers.</p>
+		<table class="bitwise">
+		<caption>32 Bit Conversions of Dec</caption>
+		<tr><td>Position</td><td>5 </td><td>4 </td><td>3 </td><td>2 </td><td>1 </td><td>0</td></tr>
+		<tr><td>Power</td><td>2<sup>5</sup> </td><td>2<sup>4</sup> </td><td>2<sup>3</sup> </td><td>2<sup>2</sup> </td><td>2<sup>1</sup> </td><td>2<sup>0</sup></td></tr>
+		<tr><td>Value</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+		<tr><td>a = 37</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+		<tr><td>b = 23</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+		</table>
+		<table>
+		<tr><td></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+		<tr><td></td><td></td></tr>
+		</table>
+		<Table class="slick eg">
+		<tr><th>Op</th><th>Name</th><th>Description</th><th>Example</th></tr>
+		<tr><td>&amp;</td><td>AND</td><td>Sets each bit to 1 IF BOTH bits are one</td><td>a &amp; b = 0 0 0 1 0 1 = 5</td></tr>
+		<tr><td>|</td><td>OR</td><td>Sets each bit to 1 IF 1 of 2 bits are one</td><td>a | b = 1 1 0 1 1 1 = 55</td></tr>
+		<tr><td>^</td><td>XOR</td><td>Sets each bit to 1 IF ONLY 1 of 2 bits are one</td><td>a ^ b = 1 1 0 0 1 0 = 50</td></tr>
+		<tr><td>~</td><td>NOT</td><td>Inverts all bits</td><td></td></tr>
+		<tr><td>&lt;&lt;</td><td>Left shift</td><td>Shifts left by pushing zeros in from the right and let the leftmost bits fall off</td><td></td></tr>
+		<tr><td>&gt;&gt;</td><td>Right shift</td><td>Signed: Shifts right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off</td><td></td></tr>
+		<tr><td>&gt;&gt;&gt;</td><td>Right shift</td><td>Unsigned: Shifts right by pushing zeros in from the left, and let the rightmost bits fall off</td><td></td></tr>
+		</table>
+		<p>Bitwise operations can be peformed per math eg <code>document.getElementById("dem04").innerHTML = 5^1;</code> displays <span id="dem04"></span> or they can be used in if statements and loops</p>
+		<P> </P>
+		<script>
+			var x = 8;
+			var text;
+			
+			if (x==8) {
+				text = "x really is " + x;
+			} else {
+				text = "x isn't " + x;
+			}
+			
+			document.getElementById("dem01").innerHTML = text; //
+			
+			//bitwise operations ... 
+			x = 5 & 1; // five in binary is 0 1 0 1; one in binary is 0 0 0 1
+			
+			if (x == 1) {
+				text = "it's true";
+			} else {
+				text = "false";
+			}
+			
+			document.getElementById("dem02").innerHTML = text; //
+			
+			//var x = ~37;
+			
+			//if (x == 26) {}
+			
+			document.getElementById("dem04").innerHTML = 5^1; //
+			//document.getElementById("dem04").innerHTML = classes.sort(); //
+		
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+		<!-- <p>. . .  <span id="dem01"></span> </p> -->
+	</div>
+</div>
+</body>
+</html>

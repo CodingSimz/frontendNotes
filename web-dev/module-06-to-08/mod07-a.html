@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mod7 CSS3</title>
+  <meta charset='utf-8'>
+  <!--<meta name="Author" content="W3docs">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+    <!-- styling for forms -->
+    
+  /* Style divs horizontally */
+
+  pre {white-space: pre-wrap;}
+
+  section {box-sizing: border-box;}
+
+  .flex-bx {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-flow: row wrap;*/ /*shorthand for direction and wrap*/
+    /*justify-content: center;
+    align-items: stretch;*/
+  }
+
+    .flex-bx div, .flex-bx div.highlight {
+     flex: 45%;
+     padding: 2.5%; 
+    }    
+ 
+    a[href$=".jpg"] {
+      border: 5px outset #CBE432;
+      text-decoration: none;
+      display:inline-flex;
+    }
+  
+  /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+ @media (max-width: 800px) {
+   .flex-bx {
+     flex-direction: column;
+  }
+   .flex-bx div, .flex-bx div.highlight {
+     flex: 100%;
+    }
+}
+    
+  #idpara {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: dimgrey;
+  } 
+    
+  #idparaC > * {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: dimgrey;
+  }  
+
+    ul li:nth-child(even){
+      color: blueviolet;
+    }  
+    
+    ol {list-style-type:decimal-leading-zero;}
+    ::marker{color: #AE0D7A}
+    
+   .classpara {font-family:fantasy;}
+
+   ul + p {color: white; background-color: #A2B814;}
+   ol ~ p {color: #A2B814;} 
+  
+    .tipbox ol li{margin-left: 2em; margin-right: 2em}
+
+   input[type=radio]:checked {height: 2em; width: 2em;}  
+    
+    /*.clearfix:after{content:""; display: block; clear: both; visibility: hidden;font-size: 0;height: 0;}*/ /*to clear floats*/ 
+    
+    .flex-bx div.highlight p:hover{color: hotpink;}
+    
+    p:not(#allelse):hover{background-color: rgba(255, 140, 0, 0.5);}
+    
+    p::first-letter{font-weight: bold;}
+    p::last-letter{font-weight: bold;}
+    
+ </style>
+</head>
+<body>
+ <header>
+  <h1>Module 7 CSS3</h1>
+  <nav>
+   <a href="/html/">HTML</a>
+   <a href="/css/">CSS</a>
+   <a href="/js/">JavaScript</a>
+   <a href="/python/">Python</a>
+  </nav>
+ </header>
+ <section>
+ <h2>CSS Selectors</h2>
+<div class="flex-bx">   
+ <div>
+   <h3>Selector Examples</h3>
+   <p>This is a para</p>
+   <p id="idpara">This is a para with an id</p>
+   <p class="classpara">This is a para with a class</p>
+   <p> Selectors can control elements, and states (pseudo-classes such as hover, active, focus, checked)</p>
+   <p>Remember: link pseudo classes must be styled in order</p><pre><code>a:link{}
+a:visited{}
+a:hover{}
+a:active{}</code></pre>
+ </div>
+  <div>
+    <h3>Rules</h3>
+    <p>* = the wildcard symbol ie affects all, for instance </p><pre><code>#idparaC &gt; * {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: dimgrey;
+  } </code></pre><p> will affect children of this p tag but not the tag itself</p>
+   <p id="idparaC">This is a para with an id of idparaC and the above code will affect all its children <span>like me - a span tag</span> or <a href="#">this link</a></p>
+  </div>
+  </div><!--close flex-bx-->
+  <div class="flex-bx">
+   <div>
+     <p>Using nth-child selectors for instance</p>
+     <pre><code>ul li:nth-child(even){
+      color: blueviolet;
+    }</code></pre>
+     <ul>
+       <li>badadda</li>
+       <li>badadda</li>
+       <li>badadda</li>
+       <li>badadda</li>
+     </ul>
+     <p>This is using the + for an adjacent selector, meaning it will affect the first sibling after</p><p>but not the rest</p>
+     <code>ul + p{color: white; background-color: #A2B814}</code>
+   </div>
+   <div>
+   <p>The tilde ~ denotes any siblings for instance using <code> ol ~ p{}</code> will style all p tags after an ordered list</p>
+   <ol><li>above</li><li>below</li></ol>
+     <p>like this</p> <p>and this</p>
+     <h3>Attributes </h3>
+     <p>can be styled using [ ] after the element eg <code>a[title]</code>, or <code>input[type=checkbox]</code> use the ^ to denote <strong>starts with</strong> eg</p> <code>a[href^="http"] {}</code>
+ </div>
+</div><!--close flex-bx-->
+<div class="flex-bx">
+ <div class="highlight">
+   <p>This shows us a way to style based on href attributes.</p>
+   <pre><code>a[href$=".jpg"]{
+   border: 5px outset #CBE432;
+   }</code> </pre>
+   
+   <p><a href="../img/zenmiffy-front.jpg">Image of Zen Miffy</a></p>
+   <p>Use the $ to denote <strong>Ends with</strong></p>
+   <p>Note: this div uses <code>div.highlight:hover {color: hotpink;}</code></p><p>All paras ares styled with <br> <code>p:first-letter {font-weight: bold;}</code></p>
+ </div> 
+ <div>
+  <p>We can also style by <code>a[data-filetype=""] {}</code> for exact keyword eg image, or ~="" for the word within</p>
+  <p>And in the same way style by type or name attributes</p>
+  <input type="radio" name="pref">high
+  <input type="radio" name="pref">medium
+  <input type="radio" name="pref">low
+   <p id="allelse">Shows what happens with the :not() selector eg </p>
+   <pre><code>p:not(#allelse):hover {
+   background-color: rgba(255,140,0,0.5)
+   }</code></pre>
+   <p>will add a hover effect to all other paras</p>
+ </div>    
+</div><!--close flex-bx-->
+<div class="tipbox">
+  <p>We have Combinators:</p>
+  <ol>
+    <li>Descendant .a b {} affecting all b nested in a</li>
+    <li>Direct child .a &gt;b {} affecting ONLY direct</li>
+    <li>Adjacent sibling a + p {} affecting next p after a</li> 
+    <li>General sibling a ~ p {} affecting all ps after a</li>
+  </ol>
+  <p>We have Pseudo-Elements:</p>
+  <code>selector::pseudo-element {property: value;}</code>
+  <ol>
+    <li>::first-line for block lvl elements only</li>
+    <li>::first-letter for block lvl elements only</li>
+    <li>::before and ::after</li>
+    <li>::marker pseudo-element selects the markers of list item</li>
+    <li>::selection matches the portion of an element that is selected by a User</li>
+  </ol>
+  </div>
+   <div class="boxEffect">
+   </div>
+</section>
+  
+ <footer></footer>
+  <script>
+  </script>
+</body>
+
+
+</html>

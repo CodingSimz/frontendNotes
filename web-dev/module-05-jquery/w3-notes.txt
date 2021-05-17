@@ -1,0 +1,61 @@
+jquery 
+
+is a lightweight javascript library
+
+simplifies AJAX calls and DOM manipulation
+
+incl: html/dom manipulation, css manipulation, html event methods, effects and animations, ajax, utilities
+
+Accessing the library
+
+Downloading jQuery
+There are two versions of jQuery available for downloading:
+
+Production version - this is for your live website because it has been minified and compressed
+Development version - this is for testing and development (uncompressed and readable code)
+Both versions can be downloaded from jQuery.com.
+
+<head>
+<script src="jquery-3.5.1.min.js"></script>
+</head>
+
+OR host from google cdn
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+Basic syntax is: $(selector).action()
+
+Examples:
+
+$(this).hide() - hides the current element.
+
+$("p").hide() - hides all <p> elements.
+
+$(".test").hide() - hides all elements with class="test".
+
+$("#test").hide() - hides the element with id="test".
+
+
+To prevent jquery from beginning before the page finishes loading it can be placed within
+
+$(document).ready(function(){
+
+  // jQuery methods go here...
+
+});
+
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="my_jquery_functions.js"></script>
+</head>
+
+
+
+Event Syntax
+$("p").click(function(){
+  // action goes here!!
+});
+
+

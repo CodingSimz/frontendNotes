@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Module 03 Floats</title>
+	
+	<!-- <link rel="stylesheet" type="text/css" href="mod03-styles.css"> -->
+	
+	<style>
+		
+		body {
+			font-size: 1.1em;
+			counter-reset: section;
+			}
+			
+		h1 {
+			counter-reset: subsection;
+			font-size: 1.4em;
+			}	
+	
+		h1:before {
+			counter-increment: section;
+			content: "Section " counter(section) ". ";
+			}
+			
+		h2 {
+			font-size: 1.25em;
+		}
+	
+		h2:before {
+			counter-increment: subsection;
+			content: counter(section) ". " counter(subsection) " ";
+			}	
+			
+		h3 {
+			font-size: 1.1em;
+			font-weight: normal;
+			color: darkorange;
+			}	
+	
+		div.container {
+			width: 100%;
+			margin: 0px;
+			border: 1px solid gray;
+			line-height: 150%;
+			}
+		
+		div.header, div.footer {
+			padding: 0.5em;
+			color: white;	
+			background-color: navy;
+			clear: left;
+			}
+		
+		h1.header {
+			padding: 0;
+			margin: 0;
+			}
+		
+		div.left {
+			margin-left: 190px;
+			border-left: 1px solid gray;
+			padding: 1em;
+			}
+			
+		div.content {
+			padding: 5px;
+			}	
+
+		
+		ul li {
+			padding-top: 0.5em;
+			}
+			
+		q:lang(en) {
+			quotes: "<<" ">>" "'" "'";
+		}	
+		
+		input:focus {
+			background-color: yellow;
+		}
+		
+		/* only if it is the first child of its parent */
+		p:first-child {
+			color: seagreen;
+		}
+		
+		p i:first-child {
+			color: crimson;
+		}
+		
+		p::first-letter {
+			color: crimson;
+			font-weight: bold;
+			font-family: cursive;
+		}
+		
+		code:nth-of-type(odd) {
+			color: darkorange;
+			font-weight: bold;
+			font-family: cursive;
+		}
+		
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="header">
+		<h1 class="header">CSS Counters, Selectors and the Float property</h1>
+	</div>
+	<h2>More Stuff</h2>
+	<h2>Even more stuff</h2>
+	<h1>This is about counters</h1>
+	<h2>More Stuff</h2>
+	<h2>Even more stuff</h2>
+	<h1>Lest see what happens</h1>
+	<h2>More Stuff</h2>
+	<h2>Even more stuff</h2>
+	<p>These are created using <code>counter-reset: section;</code> at the body and the combinations of h1 h1:before and h2:before with <code>counter-reset: subsection; counter-increment: section; counter-increment: subsection;</code> </p>
+	
+	<div class="left">This is the left div which has a big left margin</div>
+	<div class="content">
+		<p>The float property specifies how an element should float.
+		<br>
+		Note: Absolutely positioned elements ignore the float property!
+		<br>
+		Note: Elements after a floating element will flow around it. To avoid this, use the clear property or the clearfix hack</p>
+		<h1>CSS Selectors</h1>
+		<p>When we write multiple selectors:
+			<ul>
+				<li><code>div, p</code> comma separates elements, used for applying properties to multiple element tags at once</li>
+				<li><code>div p</code> without a comma to separate each is a descendant or child of the one before eg will control all p elements with that div. DESCENDANT SELECTOR</li>
+				<li><code>div + p</code> with a + sign will refer to the first element after eg first paragraph after the div. ADJACENT SIBLING COMBINATOR</li>
+				<li><code>div > p</code> with a &gt; sign will refer to all p elements the div is a parent of <em>but will only look level down</em>. CHILD COMBINATOR SELECTOR</li>
+				<li><code>p ~ ul</code> with a ~ sign will refer to all ul elements that are preceded by a p element. THIS IS AN GENERAL SIBLING</li>
+			</ul>
+		</p>
+		<p> This is using <q>double and <q>single</q> quotes</p>
+		<p>Here the quotes were provided by using &lt;q&gt; twice and then a single &lt;/q&gt; in the p tags that corresponded to the css code <br><code>q:lang(en) { <br>
+			quotes: "&lt;&lt;" "&gt;&gt;" "'" "'"; <br>
+		}</code> </p>
+		<h2>Pseudo Classes</h2>
+		<h3>A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, :hover can be used to change a button's color when the user's pointer hovers over it</h3>
+		<form>
+			<label for="fname">First name:</label>
+			<input type="text" id="fname" name="fname" autofocus><br><br>
+			<label for="lname">Last name:</label>
+			<input type="text" id="lname" name="lname"><br><br>
+			<label for="pword">Email:</label>
+			<input type="email" id="email" name="email"><br><br>
+		</form>
+		<p>In the above fields the field in focus will have a yellow background due to the CSS pseudo class of input:focus</p>
+		<p>The :first-child pseudo works <em>only if it is the first child of its parent</em> eg first paragraph in a div (no preceding h tag)</p>
+	
+		<div>
+			<p>First paragraph in a new div.</p>
+			<p> i am <i>seeing red</i> as the first italic tag but <i>I'm not because I'm the second</i> based on<br>
+			<code>p i:first-child { <br>
+			color: crimson; <br>
+		}</code>
+			</p>
+			<p>Pseudo Classess inlcude :first-child, :first-of-type, :active, :nth-child(n), ::after, ::before, ::first-letter, ::first-line to name a few.
+<br> <code>code:nth-of-type(odd) {<br>
+			color: darkorange;<br>
+			font-weight: bold;<br>
+			font-family: cursive;<br>
+		}</code><br>
+		The above code affects the even code tags</p>
+		</div>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>M4 JS Conditionals and loops</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans&display=swap" rel="stylesheet">
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="mod04-styles.css">
+	<style>
+		div.content > ul {
+			list-style: none outside;	
+		}
+		
+		div.content > ul li:before {
+			content: "\002740 ";
+			color: darkviolet;
+			display: inline-block;
+			text-indent: -1em;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header clearfix">
+		<h1>Mod:04 JS Conditionals and loops</h1>
+		<ul id="nav">
+			<li><a href="">home</a></li>
+			<li><a href="">news</a></li>
+			<li><a href="">about</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2>Switch Statements</h2>
+		<Table class="cases">
+		<tr><th>Syntax</th><th> Ex var age = 50; var greeting ="";</th></tr>
+		<tr>
+		<td>
+		<code>switch(expression) {<br>
+		&nbsp;&nbsp;case x: //do or displ <br>
+		&nbsp;&nbsp;&nbsp;break;<br>
+		&nbsp;&nbsp;case y: //do or displ <br>
+		&nbsp;&nbsp;&nbspbreak;<br>
+		&nbsp;&nbsp;default: //do or displ <br>
+		&nbsp;}</code>
+		</td>
+		<td>
+		<code> 
+		switch(age) {<br>
+		&nbsp;&nbsp;case 50: greeting = "Yay 50!"<br>
+		&nbsp;&nbsp;&nbsp;break;<br>
+		&nbsp;&nbsp;case 60: greeting = "Yay 60!"<br>
+		&nbsp;&nbsp;&nbspbreak;<br>
+		&nbsp;&nbsp;default: greeting = "How old?"<br>
+		&nbsp;} displays <span id="dem01"></span></code>
+		</td>
+</tr>
+		</Table>
+		<ul>
+		<li>The <b>break</b> keyword stops the switch block,s execution</li>
+		<li>The <b>default</b> keyword specifies what code to run/display if there is no case match, it can go anywhere or be absent from the switch statement</li>
+		<li>If multiple cases match the expression value, the first case is selected</li>
+		<li>If there is no default and no cases match, the pgm continues to the statements following the switch</li>
+		<li>cases can be stacked to share the same code block eg <br>
+		<code>case2:<br>
+		case4:<br>
+		text = "yadda yadda";</code></li>
+		</ul>
+		
+		<h2>The For Loop</h2>
+		<P>The for loop iterates through a block of code, such as an array and has the following syntax<br>
+		<code>for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}</code></P>
+<ul>
+<li><b>Statement 1</b> (optional) is executed once, before the code block and so can be used to set variables (var keyword not required); mulitple variables shoud be separated by a comma</li>
+<li><b>Statement 2</b> (optional) defines the condition for executing the code block. If statement 2 returns True the loop continues, if it returns False the loop will end. Although this statement is optional without it the codeblock must contain a <b>break</b> or else the loop won't end</li>
+<li><b>Statement 3</b> (optional) is executed after each execution of the code block for instance, to increment i++ or decrement I-- the variable -  this can be omitted here and placed in the loop. 
+		</ul>
+		<p>The For Loop format is often <br>
+		<code>for (i = 0; i &lt; 5; i++) {
+  // code block to be executed
+}</code> </p>
+		
+		<p><b>break</b> keyword: breaks out of a loop, for example, this loop contains an if statement with a break when i=3<br> <span id="dem02"></span></p>
+		<p><b>continue</b> keyword: jumps past an iteration in a loop, for example, this loop contains an if statement with a continue when i=3 <br> <span id="dem03"></span></p>
+		<h2>Labels in JS</h2>
+		<p>A label is simply an identifier followed by a colon (:) that is applied to a statement or a block of code. Syntax <code>labelname: {statement list}</code>. A use case is combining labels with break and continue keyworkds in nested loops <br><code>
+		outerloop: //label name<br>
+		for() { <br>
+		&nbsp;innerloop: //label name<br>
+		&nbsp;for() {<br>
+		&nbsp;&nbsp;if () break;<br>
+		&nbsp;&nbsp;if () break innerloop; //quit inner<br>
+		&nbsp;&nbsp;if () break outerloop; //quit outer<br>
+		&nbsp;&nbsp;document.write();<br>
+		&nbsp;}<br>
+		}
+		</code></p>
+		<h2>Datatypes revisited</h2>
+		<p>Reminder of typeof eg<code>document.getElementById("dem0").innerHTML = 
+			typeof false</code> returns <span id="dem04"></span></p>
+		<h2>RegExp Object</h2>	
+		<p>A Regular Expression = an Obj that describes a pattern of chars and can be used to perform pattern-matching and 'search-and-replace' functions on text.</p>
+		<p>Syntax <code>/pattern/modifiers</code></p>
+		<p><b>RegExp i Modifier</b> Syntax <code>/regexp/i</code> can be used to ignore case in a string eg to find the position match of the word javascript in the str "looking for JavaScript in this sentence", <code>str.search(/javascript/i); // using case insensitivity</code>
+		<button onclick="getPos()">Click Me</button>
+		<span id="dem05"></span></p>
+		<p>For more on RegExp visit <a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp" target="_blank">w3schools RegExp</a></p>
+		
+		<script>
+			var age = 60;
+			var greeting = "";
+			
+			switch (age) {
+				case 50: greeting = "Yay 50!"
+					break;
+				case 60: greeting = "Yay 60!"
+					break;
+			}
+			
+			document.getElementById("dem01").innerHTML = greeting; //
+			
+			//var 1=0;
+			var txt="";
+			
+			for (i=0; i<5; i++) {
+				if(i == 3) {
+					txt += "I am  breaking on 3 <br>";
+					break;
+				}
+			txt += "I am " + i +", &nbsp;";	
+			}
+			
+			document.getElementById("dem02").innerHTML = txt; //
+			
+			var txt="";
+			
+			for (i=0; i<5; i++) {
+				if(i == 3) {
+					txt += "I'm jumping on 3, &nbsp;";
+					continue;
+				}
+			txt += "I am " + i +", &nbsp;";	
+			}
+			
+			document.getElementById("dem03").innerHTML = txt; //
+			//document.getElementById("dem04").innerHTML = classes.sort(); //
+			
+			document.getElementById("dem04").innerHTML = typeof false;
+			
+			
+			function getPos() {
+				var str = "looking for Javascript in this sentence";
+				var srch = str.search(/javascript/i); // using case insensitivity
+				document.getElementById("dem05").innerHTML = srch;
+			}
+			//document.getElementById("dem05").innerHTML
+			
+			
+			var colours = ["red","green","blue","yellow","purple"];
+			var txt = "";
+			
+			list: // label called list, labels are identified by a name:
+			{
+				text += colours[0] + ", ";
+				text += colours[1] + ", ";
+				text += colours[2] + ", ";
+				text += colours[3] + ", ";
+				text += colours[4] + ", ";
+				text += colours[5] + ", ";
+			}
+			
+			
+		</script>
+	</div>
+	<div class="footer">
+		&copy; Sims web <address>Sims place</address>
+		<!-- <p>. . .  <span id="dem01"></span> </p> -->
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mod8 Review</title>
+  <meta charset='utf-8'>
+  <!--<meta name="Author" content="W3docs">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+    
+  /* Style divs horizontally */
+  section {box-sizing: border-box;}
+
+  .flex-bx {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-flow: row wrap;*/ /*shorthand for direction and wrap*/
+  }
+    
+  .flex-bx div {flex: 45%;}  
+  .flex-bx div:nth-child(odd) {padding-right: 2.5%;} 
+  .flex-bx div:nth-child(even) {padding-right: 2.5%;}     
+  
+  /* Add responsiveness - display vertically instead of horizontally on screens that are less than 800px wide */
+ @media (max-width: 800px) {
+   .flex-bx {flex-direction: column;}
+   /*.flex-bx div {flex: 100%;}*/
+   img{max-width: 85%;}
+ }
+
+  ul li:nth-child(even){color: blueviolet;}  
+  ol {list-style-type:decimal-leading-zero;}
+  ::marker{color: #AE0D7A}
+  
+  ol, ol li{margin-left: 0;}  
+    
+  pre {white-space: pre-wrap;}
+    
+ </style>
+</head>
+<body>
+ <header>
+  <h1>Module 8 Course Review</h1>
+  <nav>
+   <a href="/html/">HTML</a>
+   <a href="/css/">CSS</a>
+   <a href="/js/">JavaScript</a>
+   <a href="/python/">Python</a>
+  </nav>
+ </header>
+ <section>
+ <h2>Review of HTML5, CSS3, JS</h2>
+<div class="flex-bx">   
+ <div>
+   <ol>
+    <li>HTML5 and CSS are markup langs, js is a script therefore Browsers don't need to compile code</li>
+    <li>Browsers use the HTML doctype declaration to determine how to interpret the markup</li>
+    <li>Make the User experience clear and smooth: <strong>Visually Appealing and Functional</strong></li>
+    <li>Think What's Intuitive? (nav, layout etc)</li> 
+   </ol>
+ </div>
+ <div>
+   <ol>
+    <li>Order of <code>&lt;script&gt;</code>  elements is important</li>
+    <li>JS Objects and Functions need to be in Scope before they are used</li>
+     <li>Use the <code>&lt;noscript&gt;</code> element to alert Users with Browser that have scripting disabled</li>
+     <li>IDE Integrated Development Environment (VisualStudio, NetBeans, Eclipse, VSCode</li>
+   </ol>
+ </div>
+ <img src="../img/css-syntax.png" alt="css syntax" width="600">   
+</div><!--close flex-bx-->
+<!--<div class="flex-bx">   
+ <div>
+   <h3>Selector Examples</h3>
+   <p>This is a para</p>
+ </div>
+ <div>
+   <h3>Selector Examples</h3>
+   <p>This is a para</p>
+ </div>
+</div>--><!--close flex-bx-->
+
+<div class="tipbox">
+</div>
+</section>
+ <footer></footer>
+  <script>
+  </script>
+</body>
+
+
+</html>
